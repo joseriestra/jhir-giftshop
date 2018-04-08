@@ -4,9 +4,11 @@ using System.Text;
 
 namespace Entities.Enums
 {
-    public enum PaymentMethod
+    public enum DeliveryOption
     {
-        CreditCard = 1,
-        PayPal = 2
+        Drone = 1,
+        Express = 2,
+        Standard = 3,
+        PickUp = 4
     }
 }

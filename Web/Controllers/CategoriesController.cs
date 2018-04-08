@@ -43,5 +43,37 @@ namespace Web.Controllers
                 return Content(HttpStatusCode.InternalServerError, CreateHttpError(e.Message));
             }
         }
+
+        [Route("api/categories/{id}")]
+        [HttpGet]
+        public IHttpActionResult Get(long id)
+        {
+            try
+            {
+                IList<Product> products = Factory.ProductBusiness.FindProductsByCategoryId(id);
+                if (products.Count > 0)
+                {
+                    var model = products.Select(m => new
+                    {
+                        Id = m.Id,
+                        ProductName = m.ProductName,
+                        ProductCode = m.ProductCode,
+                        Description = m.Description,
+                        Price = m.Price,
+                        ImagePath = m.ImagePath,
+                        CategoryId = m.CategoryId
+                    });
+                    return Ok(model);
+                }
+                else
+                {
+                    return Content(HttpStatusCode.NotFound, CreateHttpError("The selected category does not have any product."));
+                }
+            }
+            catch (Exception e)
+            {
+                return Content(HttpStatusCode.InternalServerError, CreateHttpError(e.Message));
+            }
+        }
     }
 }

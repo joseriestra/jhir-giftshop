@@ -31,7 +31,7 @@ namespace Web.Controllers
                     {
                         Id = m.Id,
                         OrderDate = m.OrderDate,
-                        PayMentMethod = m.PayMentMethod,
+                        DeliveryOption = m.DeliveryOption,
                         Total = m.Total
                     });
                     return Ok(model);
@@ -63,7 +63,7 @@ namespace Web.Controllers
                 {
                     Id = order.Id,
                     OrderDate = order.OrderDate,
-                    PayMentMethod = order.PayMentMethod,
+                    DeliveryOption = order.DeliveryOption,
                     Total = order.Total,
                     Products = order.Products.Select(p => new
                     {

@@ -16,7 +16,7 @@ namespace Entities.Classes
         public User User { get; set; }
         public long UserId { get; set; }
         public string ShippingAdress { get; set; }
-        public PaymentMethod PayMentMethod { get; set; }
+        public DeliveryOption DeliveryOption { get; set; }
         public double Total { get; set; }
     }
 }

@@ -23,7 +23,7 @@ namespace Repository.Classes
             orderSaved.UserId = order.UserId;
             orderSaved.Total = order.Products.Sum(p => p.Price);
             orderSaved.ShippingAdress = order.ShippingAdress;
-            orderSaved.PayMentMethod = order.PayMentMethod;
+            orderSaved.DeliveryOption = order.DeliveryOption;
             base.Save(orderSaved);
         }
 

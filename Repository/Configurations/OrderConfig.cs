@@ -15,7 +15,7 @@ namespace Repository.Configurations
             this.Property(o => o.Id).HasColumnName("id");
             this.Property(o => o.OrderDate).HasColumnName("orderDate");
             this.Property(o => o.ShippingAdress).HasColumnName("shippingAdress");
-            this.Property(o => o.PayMentMethod).HasColumnName("paymentMethod");
+            this.Property(o => o.DeliveryOption).HasColumnName("deliveryOption");
             this.Property(o => o.Total).HasColumnName("total");
             this.Property(o => o.UserId).HasColumnName("userId");
 
