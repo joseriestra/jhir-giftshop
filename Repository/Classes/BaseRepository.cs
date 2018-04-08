@@ -10,7 +10,7 @@ using System.Data.Entity;
 namespace Repository.Classes
 {
     /// <summary>
-    /// Base class for the Data Access Objects
+    /// Base class for the Data Access Objects.
     /// </summary>
     /// <typeparam name="TEntity">Entity Type</typeparam>
     public class BaseRepository<TEntity> where TEntity : BaseEntity

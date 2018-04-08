@@ -7,6 +7,9 @@ using Repository.Utils;
 
 namespace Business.General
 {
+    /// <summary>
+    /// Business Base Class for Repository Creation.
+    /// </summary>
     public class BaseBusiness
     {
         private FactoryRepository factory;
