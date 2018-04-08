@@ -6,6 +6,7 @@ using System.Linq.Expressions;
 using Entities.Classes;
 using Repository.General;
 using System.Data.Entity;
+using Entities.TableConfig;
 
 namespace Repository.Classes
 {
@@ -292,6 +293,55 @@ namespace Repository.Classes
                 {
                     entitiesToUpdate.ForEach(updateAction);
                 }
+            }
+        }
+
+        /// <summary>
+        /// Execute paging query
+        /// </summary>
+        /// <typeparam name="TSelect">Selection type</typeparam>
+        /// <typeparam name="TOrderKey">Order key type</typeparam>
+        /// <param name="config">Paging config</param>
+        /// <param name="select">Selection</param>
+        /// <param name="filters">Filters</param>
+        /// <param name="orders">Orders</param>        
+        /// <returns>Paging query result</returns>
+        protected PagingResult<TSelect> ExecPagingQuery<TSelect, TOrderKey>(PagingConfig config, Expression<Func<TEntity, TSelect>> select,
+            IList<Expression<Func<TEntity, bool>>> filters, IList<Expression<Func<TEntity, TOrderKey>>> orders = null)
+        {
+            try
+            {
+                PagingResult<TSelect> result = new PagingResult<TSelect>(config);
+                IQueryable<TEntity> query = CreateQuery(filters);
+
+                // total row count
+                result.TotalRows = query.LongCount();
+
+                // custom orders
+                if (orders == null)
+                {
+                    query = query.OrderBy(e => e.Id);
+                }
+                else
+                {
+                    foreach (var order in orders)
+                    {
+                        query = query.OrderBy(order);
+                    }
+                }
+
+                // paging
+                query = query.Skip(config.PageNum * config.PageSize);
+                query = query.Take(config.PageSize);
+
+                // fill query result
+                result.Rows = query.Select(select).ToList();
+
+                return result;
+            }
+            catch (Exception e)
+            {
+                throw new EntityException("An error ocurred trying to execute the paging query", e);
             }
         }
 
