@@ -16,7 +16,7 @@ namespace Web.Binders
         /// </summary>
         /// <param name="controllerContext">Controller context</param>
         /// <param name="bindingContext">Binding context</param>
-        /// <returns>PagincConfig Object binded</returns>
+        /// <returns>PagincConfig Object binded.</returns>
         public object BindModel(ControllerContext controllerContext, ModelBindingContext bindingContext)
         {
             // Get the request info
