@@ -12,6 +12,9 @@ using Web.Utils;
 
 namespace Web.Controllers
 {
+    /// <summary>
+    /// Provides the login functionality
+    /// </summary>
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class LoginController : BaseController
     {

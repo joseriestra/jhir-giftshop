@@ -12,6 +12,9 @@ using System.Web.Http.Cors;
 
 namespace Web.Controllers
 {
+    /// <summary>
+    /// Provides The Products Functionality
+    /// </summary>
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class ProductsController : BaseController
     {

@@ -16,6 +16,9 @@ using System.Web.Http;
 
 namespace Web.Controllers
 {
+    /// <summary>
+    /// Provides the factory creation and shared functionality between controllers
+    /// </summary>
     public class BaseController : ApiController
     {
         private FactoryBusiness factory;

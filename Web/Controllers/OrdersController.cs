@@ -12,6 +12,9 @@ using Web.Controllers;
 
 namespace Web.Controllers
 {
+    /// <summary>
+    /// Provides the Order Realization Functionality
+    /// </summary>
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class OrdersController : BaseController
     {

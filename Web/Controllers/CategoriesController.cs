@@ -10,6 +10,9 @@ using Web.Controllers;
 
 namespace Web.Controllers
 {
+    /// <summary>
+    /// Provides the Categories Functionality
+    /// </summary>
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class CategoriesController : BaseController
     {

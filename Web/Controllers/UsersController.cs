@@ -13,6 +13,9 @@ using Web.Controllers;
 
 namespace Web.Controllers
 {
+    /// <summary>
+    /// Provides The Users Funcionality
+    /// </summary>
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class UsersController : BaseController
     {
