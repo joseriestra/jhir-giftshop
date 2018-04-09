@@ -44,7 +44,7 @@ namespace Business.Classes
             return Factory.OrdersRepository.FindAll();
         }
 
-        public Order FindHistoryOrdersByUser(long userId)
+        public IList<Order> FindHistoryOrdersByUser(long userId)
         {
             return Factory.OrdersRepository.FindHistoryOrdersByUser(userId);
         }

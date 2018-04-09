@@ -27,11 +27,11 @@ namespace Repository.Classes
             base.Save(orderSaved);
         }
 
-        public Order FindHistoryOrdersByUser(long userId)
+        public IList<Order> FindHistoryOrdersByUser(long userId)
         {
             var filters = CreateFiltersList();
             filters.Add(f => f.UserId == userId);
-            return base.FindUniqueByFilters(filters);
+            return base.FindByFilters(filters);
         }
     }
 }

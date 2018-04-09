@@ -110,5 +110,36 @@ namespace Web.Controllers
                 return Content(HttpStatusCode.InternalServerError, CreateHttpError(e.Message));
             }
         }
+
+        [Route("api/orders/{userId}")]
+        [HttpGet]
+        public IHttpActionResult FindHistoryOrdersByUser(long userId)
+        {
+
+            try
+            {
+                IList<Order> orders = Factory.OrderBusiness.FindHistoryOrdersByUser(userId);
+                if (orders.Count > 0)
+                {
+                    var model = orders.Select(m => new
+                    {
+                        Id = m.Id,
+                        OrderDate = m.OrderDate,
+                        DeliveryOption = m.DeliveryOption,
+                        Total = m.Total
+                    });
+                    return Ok(model);
+                }
+                else
+                {
+                    return NotFound();
+                }
+            }
+            catch (Exception e)
+            {
+                return Content(HttpStatusCode.InternalServerError, CreateHttpError(e.Message));
+            }
+        }
+
     }
 }
