@@ -62,7 +62,7 @@ namespace Web.Controllers
                 return Content(HttpStatusCode.NotFound, CreateHttpError(e.Message));
             }
         }
-
+        [Route("api/users")]
         [HttpPost]
         [ResponseType(typeof(User))]
         public IHttpActionResult Post([FromBody] User user)
@@ -78,6 +78,7 @@ namespace Web.Controllers
             }
         }
 
+        [Route("api/users")]
         [HttpDelete]
         public IHttpActionResult Delete(long id)
         {

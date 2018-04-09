@@ -92,6 +92,7 @@ namespace Web.Controllers
             }
         }
 
+        [Route("api/products")]
         [HttpDelete]
         public IHttpActionResult Delete(long id)
         {

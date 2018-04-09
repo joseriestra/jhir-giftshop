@@ -96,7 +96,7 @@ namespace Web.Controllers
                 return Content(HttpStatusCode.InternalServerError, CreateHttpError(e.Message));
             }
         }
-
+        [Route("api/orders")]
         [HttpDelete]
         public IHttpActionResult Delete(long id)
         {
